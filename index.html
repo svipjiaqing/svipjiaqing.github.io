@@ -57,11 +57,11 @@ Htime.onreadystatechange=function(){
 window.time=new Date();  
 targetTime=new Date();  
 time2String=function (t){  
-with(t)return [getFullYear(),'年'  ,('0'+(getMonth()+1)).slice(-2),'月'  ,('0'+getDate()).slice(-2),'日 '  ,('0'+getHours()).slice(-2),': '  ,('0'+getMinutes()).slice(-2),': '  ,('0'+getSeconds()).slice(-2)].join('')  
+with(t)return [getFullYear(),'Y'  ,('0'+(getMonth()+1)).slice(-2),'M'  ,('0'+getDate()).slice(-2),'D '  ,('0'+getHours()).slice(-2),': '  ,('0'+getMinutes()).slice(-2),': '  ,('0'+getSeconds()).slice(-2)].join('')  
 }  
 int2time=function (m){
   m-=(D=parseInt(m/86400000))*86400000;  m-=(H=parseInt(m/3600000))*3600000;  S=parseInt((m-=(M=parseInt(m/60000))*60000)/1000);  
-  return D+'天'+H+'小时'+M+'分'+S+'秒'  
+  return D+'D'+H+'H'+M+'M'+S+'S'  
   }  
   setInterval(function (){ 
    webDate(function (webTime){  
@@ -70,18 +70,17 @@ int2time=function (m){
    get('locale').innerHTML=time2String(new Date);  
    get('time').innerHTML=int2time(targetTime-time);  
    if ((targetTime-time)<0) {  
-   get('time').innerHTML = 'Game Over';  
+   get('time').innerHTML = 'QQ';  
    }  },1000)  
 </script>  
 </head>  
 <body>  
 设定时间：2015年06月18日0时0分0秒<br>  服务器时间:<span id='web'>loading...</span><br>  
 本地时间:<span id="locale">loading...</span><br>  
-倒计时时间:<span id="time">loading...</span>  
-<script type="text/javascript" charset="utf-8">  targetTime=new Date(2015,06,18,00,00,00);  </script>  
+:<span id="time">loading...</span>  
+<script type="text/javascript" charset="utf-8">  targetTime=new Date(2019,06,07,00,00,00);  </script>  
 </body> 
 
-<h3> 2018.12.20 </h3>
  <center>
 <h1> <BLINK> <font size="50" color="blue" >蒙倩倩</font>    </BLINK> </h1>
   </center>
