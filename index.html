@@ -1,59 +1,80 @@
 <html>
 <body>   
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
-<head>  
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>  
-<title>untitled</title>  
+  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+	div{
+		font-size:58px;
+	}
+</style>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>JS时间倒计时</title>
 <script type="text/javascript">
-get=function (id){
-return document.getElementById(id)
-}  
-if(document.all){  
-window.XMLHttpRequest=function(){  
-var get=['Microsoft.XMLHTTP','Msxml2.XMLHTTP'];  
-for(var i=0;i<get.length;i++)
+var time_now_server,time_now_client,time_end,time_server_client,timerID;
+ 
+time_end=new Date("2016/12/31 00:00:0");//结束的时间
+time_end=time_end.getTime();
+ 
+time_now_server=new Date();//开始的时间
+time_now_server=time_now_server.getTime();
+ 
+time_now_client=new Date();
+time_now_client=time_now_client.getTime();
+ 
+time_server_client=time_now_server-time_now_client;
+ 
+setTimeout("show_time()",1000);
+ 
+function show_time()
 {
-  try{
-   return new ActiveXObject(get[i])
-   }
-  catch(e){}
-};  
-};  
-}  
-webDate=function(fn){  
-var Htime=new XMLHttpRequest();  
-Htime.onreadystatechange=function(){
-  Htime.readyState==4&&(fn(new Date(Htime.getResponseHeader('Date'))))
-  };  
-  Htime.open('HEAD', '/?_='+(-new Date));  Htime.send(null);  
-}  
-window.time=new Date();  
-targetTime=new Date();  
-time2String=function (t){  
-with(t)return [getFullYear(),'Y'  ,('0'+(getMonth()+1)).slice(-2),'M'  ,('0'+getDate()).slice(-2),'D '  ,('0'+getHours()).slice(-2),': '  ,('0'+getMinutes()).slice(-2),': '  ,('0'+getSeconds()).slice(-2)].join('')  
-}  
-int2time=function (m){
-  m-=(D=parseInt(m/86400000))*86400000;  m-=(H=parseInt(m/3600000))*3600000;  S=parseInt((m-=(M=parseInt(m/60000))*60000)/1000);  
-  return D+'D'+H+'H'+M+'M'+S+'S'  
-  }  
-  setInterval(function (){ 
-   webDate(function (webTime){  
-         get('web').innerHTML=time2String(time=webTime);  
-         })  
-   get('locale').innerHTML=time2String(new Date);  
-   get('time').innerHTML=int2time(targetTime-time);  
-   if ((targetTime-time)<0) {  
-   get('time').innerHTML = 'QQ';  
-   }  },1000)  
-</script>  
-</head>  
-<body>  
-TARGET：2019年06月7日0时0分0秒<br>  服务器时间:<span id='web'>loading...</span><br>  
-NOW:<span id="locale">loading...</span><br>  
-距离高考还有:<span id="time">loading...</span>  
-<script type="text/javascript" charset="utf-8">  targetTime=new Date(2019,06,07,00,00,00);  </script>  
-</body> 
+ var timer = document.getElementById("timer");
+ if(!timer){
+ return ;
+ }
+ timer.innerHTML =time_server_client;
+ 
+ var time_now,time_distance,str_time;
+ var int_day,int_hour,int_minute,int_second;
+ var time_now=new Date();
+ time_now=time_now.getTime()+time_server_client;
+ time_distance=time_end-time_now;
+ if(time_distance>0)
+ {
+  int_day=Math.floor(time_distance/86400000)
+  time_distance-=int_day*86400000;
+  int_hour=Math.floor(time_distance/3600000)
+  time_distance-=int_hour*3600000;
+  int_minute=Math.floor(time_distance/60000)
+  time_distance-=int_minute*60000;
+  int_second=Math.floor(time_distance/1000)
+ 
+  if(int_hour<10)
+   int_hour="0"+int_hour;
+  if(int_minute<10)
+   int_minute="0"+int_minute;
+  if(int_second<10)
+   int_second="0"+int_second;
+  str_time=int_day+"天"+int_hour+"小时"+int_minute+"分钟"+int_second+"秒";
+  timer.innerHTML=str_time;
+  setTimeout("show_time()",1000);
+ }
+ else
+ {
+  timer.innerHTML =timer.innerHTML;
+  clearTimeout(timerID)
+ }
+}
+</script>
+</head>
+ 
+<body>
+<div id="timer"></div>
+</body>
+
+
 
  <center>
 <h1> <BLINK> <font size="80" color="orange" >愿你一切都好</font>    </BLINK> </h1>
