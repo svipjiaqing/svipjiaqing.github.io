@@ -1,31 +1,5 @@
 <html>
 <body>   
- <head>
-</head>
-<body>
-<div id="timeshow">
-</div>
-<script type="text/javascript">
-var time=new Date();
-time.setHours(0);
-time.setMinutes(0);
-time.setSeconds(30);
-var timeout;
-var timeshow=document.getElementById("timeshow");
-function countdown(){
-var hour=time.getHours();
-var min=time.getMinutes();
-var second=time.getSeconds();
-if(hour=="0"&&min=="0"&&second=="0"){alert("Time Out!");clearInterval(timeout);}
-time.setSeconds(second-1);
-hour<10?hour="0"+hour:hour;
-min<10?min="0"+min:min;
-second<10?second="0"+second:second;
-timeshow.innerHTML=hour+":"+min+":"+second;
-}
-timeout= setInterval(countdown,1000);
-</script>
-</body>
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
 <head>  
