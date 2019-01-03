@@ -169,52 +169,7 @@ $('year').innerHTML = yy;
 $('month').innerHTML = mm + 1 > 9 ? (mm + 1) : '0' + (mm + 1);
 for(var i = 1; i <= mv; i++) {
 dd = $('d' + i);
-dd.innerHTML = ' ';
-dd.className = '';
-}
-while(x.getMonth() == mm) {
-dd = $('d' + (d + mv));
-dd.innerHTML = '<a href='###' onclick='settime(' + d + ');return false'>' + d + '</a>';
-if(x.getTime() < today.getTime() || (enddate && x.getTime() > enddate.getTime()) || (startdate && x.getTime() < startdate.getTime())) {
-dd.className = 'expire';
-} else {
-dd.className = 'default';
-}
-if(x.getFullYear() == today.getFullYear() && x.getMonth() == today.getMonth() && x.getDate() == today.getDate()) {
-dd.className = 'today';
-dd.firstChild.title = '今天';
-}
-if(x.getFullYear() == currday.getFullYear() && x.getMonth() == currday.getMonth() && x.getDate() == currday.getDate()) {
-dd.className = 'checked';
-}
-x.setDate(++d);
-}
-while(d + mv <= 42) {
-dd = $('d' + (d + mv));
-dd.innerHTML = ' ';
-d++;
-}
-if(addtime) {
-$('hour').value = zerofill(hh);
-$('minute').value = zerofill(ii);
-}
-}
-function showdiv(id) {
-var p = getposition($(id));
-$('calendar_' + id).style.left = p['x']+'px';
-$('calendar_' + id).style.top = (p['y'] + 16)+'px';
-$('calendar_' + id).style.display = 'block';
-}
-function zerofill(s) {
-var s = parseFloat(s.toString().replace(/(^[\s0]+)|(\s+$)/g, ''));
-s = isNaN(s) ? 0 : s;
-return (s < 10 ? '0' : '') + s.toString();
-}
-loadcalendar();
-</script>
-用法演示：<br>请选择日期：<input name='member.birth' type='text' value='' size='14' onclick='showcalendar(event,this);' onfocus='showcalendar(event, this);if(this.value=='0000-00-00')this.value='''/>
-</body>
-</html>
+dd.innerHTML = ' '
 	<h1><marquee>蒙倩倩</marquee></h1>
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275827166'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1275827166%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 	<center>
