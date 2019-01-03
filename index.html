@@ -1,67 +1,6 @@
 
 	<html>
 <body>  
- = true;
-} else {
-e.stopPropagation();
-}
-}
-function getposition(obj) {
-var r = new Array();
-r['x'] = obj.offsetLeft;
-r['y'] = obj.offsetTop;
-while(obj = obj.offsetParent) {
-r['x'] += obj.offsetLeft;
-r['y'] += obj.offsetTop;
-}
-return r;
-}
-function loadcalendar() {
-s = '';
-s += '<div id='calendar' style='display:none; position:absolute; z-index:9;' onclick='_cancelBubble(event)'>';
-if (ie)
-{
-s += '<iframe width='200' height='160' src='about:blank' style='position: absolute;z-index:-1;'></iframe>';
-}
-s += '<div style='width: 200px;'><table class='tableborder' cellspacing='0' cellpadding='0' width='100%' style='text-align: center'>';
-///
-s += '<tr align='center' class='header'><td class='header'><a href='#' onclick='refreshcalendar(yy, mm-1);return false' title='上一月'><<</a></td><td colspan='5' class='header'><a href='#' onclick='showdiv(\'year\');_cancelBubble(event);return false' title='点击选择年份' id='year'></a> - <a id='month' title='点击选择月份' href='#' onclick='showdiv(\'month\');_cancelBubble(event);return false'></a></td><td class='header'><A href='#' onclick='refreshcalendar(yy, mm+1);return false' title='下一月'>>></A></td></tr>';
-s += '<tr class='category'><td>日</td><td>一</td><td>二</td><td>三</td><td>四</td><td>五</td><td>六</td></tr>';
-for(.value ? parsedate(controlid.value) : today;
-hh = currday.getHours();
-ii = currday.getMinutes();
-var p = getposition(controlid);
-$('calendar').style.display = 'block';
-$('calendar').style.left = p['x']+'px';
-$('calendar').style.top = (p['y'] + 20)+'px';
-_cancelBubble(event);
-refreshcalendar(currday.getFullYear(), currday.getMonth());
-if(lastcheckedyear != false) {
-$('calendar_year_' + lastcheckedyear).className = 'default';
-$('calendar_year_' + today.getFullYear()).className = 'today';
-}
-if(lastcheckedmonth != false) {
-$('calendar_month_' + lastcheckedmonth).className = 'default';
-$('calendar_month_' + (today.getMonth() + 1)).className = 'today';
-}
-$('calendar_year_' + currday.getFullYear()).className = 'checked';
-$('calendar_month_' + (currday.getMonth() + 1)).className = 'checked';
-$('hourminute').style.display = addtime ? '' : 'none';
-lastcheckedyear = currday.getFullYear();
-lastcheckedmonth = currday.getMonth() + 1;
-}
-function refreshcalendar(y, m) {
-var x = new Date(y, m, 1);
-var mv = x.getDay();
-var d = x.getDate();
-var dd = null;
-yy = x.getFullYear();
-mm = x.getMonth();
-$('year').innerHTML = yy;
-$('month').innerHTML = mm + 1 > 9 ? (mm + 1) : '0' + (mm + 1);
-for(var i = 1; i <= mv; i++) {
-dd = $('d' + i);
-dd.innerHTML = ' '
 	<h1><marquee>蒙倩倩</marquee></h1>
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275827166'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1275827166%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 	<center>
