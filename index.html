@@ -257,5 +257,26 @@ timeout= setInterval(countdown,1000);
 </script>
 
 </font>   </h4>
+	 
+document.writeln('<div id=bgcolortestdiv style="BACKGROUND-COLOR: gray;POSITION: absolute;width: 200; height: 70; top=100; Z-INDEX: 100" >');
+document.writeln('<p><B><font size=2>输入颜色代码<br>可以即时改变背景色</font></b></p>');
+document.writeln('<p><input type="text" name="text" onkeyup="cbgcolor(this.value)"></p>');
+document.writeln('</div>');
+function cbgcolor(color){   
+ if (color != '')
+ document.bgColor=(''+color+''); 
+}
+function keepdivpos(){   
+document.all.bgcolortestdiv.style.pixelTop=parseInt(document.body.scrollTop)+100 
+}
+setInterval('keepdivpos()',100)   
+// function click() {
+// alert('此网页内容仅限个人使用，禁止复制！') }
+// function CtrlKeyDown(){
+// if (event.ctrlKey) {alert('不当的拷贝将损害您的系统！') }}
+// document.onkeydown=CtrlKeyDown;
+// document.onselectstart=click;
+</script>
+  </html>
 
 	</html>
